@@ -1,4 +1,5 @@
 window.onload = function(){
+    AOS.init();
     // 스크롤 내리면 헤더에 액티브추가
     let header = document.querySelector(".header")
     window.addEventListener("scroll",function(){
@@ -6,6 +7,21 @@ window.onload = function(){
             header.classList.add("active")
         }else{
             header.classList.remove("active")
+        }
+    })
+
+    // 모바일 메뉴버튼
+    let moManuBtn =document.querySelector(".mo-manu-btn")
+    let sideManu =document.querySelector(".side-manu")
+    moManuBtn.addEventListener("click",function(){
+        sideManu.classList.toggle("active")
+        this.classList.toggle("active")
+    })
+    window.addEventListener("resize",function(){
+        let winWidth = window.innerWidth
+        if(winWidth > 768){
+            sideManu.classList.remove("active")
+            moManuBtn.classList.remove("active")
         }
     })
 
